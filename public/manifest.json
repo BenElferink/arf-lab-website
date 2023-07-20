@@ -1,7 +1,7 @@
 {
-  "short_name": "",
-  "name": "",
-  "description": "",
+  "short_name": "$LAB Token",
+  "name": "$LAB",
+  "description": "The official $LAB Token website.",
   "icons": [
     {
       "src": "favicon.ico",

@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
       <Head>
-        <meta name='description' content='' />
+        <meta name='description' content='The official $LAB Token website.' />
 
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='author' content='Ben Elferink' />
