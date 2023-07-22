@@ -12,7 +12,7 @@ const TeamCard = (props: {
   const { profilePicture, name, titles, description, socials } = props
 
   return (
-    <article className='flex flex-col items-center justify-center w-72 m-4 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-[0_0_5px_0_#4ade80]'>
+    <article className='flex flex-col items-center justify-center w-72 m-2 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-[0_0_5px_0_#4ade80]'>
       <div className='h-40 w-40 mt-2 mb-5 relative'>
         <Image src={profilePicture} alt={name} fill sizes='10rem' className='object-cover rounded-full' />
       </div>
@@ -64,6 +64,14 @@ const Team = () => {
             description: 'CNFT Enthusiast, father of 3 children',
             profilePicture: '/media/team/psaeychi.png',
             socials: ['https://twitter.com/psaeychicnft'],
+          },
+          {
+            name: 'Ben',
+            titles: ['Web Developer'],
+            description:
+              'I started my career as Fullstack Developer in 2020 & have been involved in the crypto & NFT space since 2021.',
+            profilePicture: '/media/team/ben.jpg',
+            socials: ['https://twitter.com/BenElferink', 'https://github.com/belferink1996'],
           },
         ].map(({ profilePicture, name, titles, description, socials }) => (
           <TeamCard
