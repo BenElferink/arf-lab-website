@@ -71,7 +71,7 @@ const Team = () => {
             description:
               'I started my career as Fullstack Developer in 2020 & have been involved in the crypto & NFT space since 2021.',
             profilePicture: '/media/team/ben.jpg',
-            socials: ['https://twitter.com/BenElferink', 'https://github.com/belferink1996'],
+            socials: ['https://twitter.com/BenElferink', 'https://github.com/BenElferink'],
           },
         ].map(({ profilePicture, name, titles, description, socials }) => (
           <TeamCard
