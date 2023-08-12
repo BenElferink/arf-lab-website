@@ -1,20 +1,14 @@
 import Image from 'next/image'
-import SocialIcon from './SocialIcon'
 import Glitch from './Glitch'
+import SocialIcon from './SocialIcon'
+import Navigation from './Navigation'
 
 const Header = () => {
   return (
     <header className='w-screen py-4 px-2 bg-black bg-opacity-70 flex items-center justify-between sticky top-0 z-40'>
       <div className='flex items-center'>
         <div className='h-16 w-16 relative'>
-          <Image
-            src='/media/coin-v1.png'
-            alt='logo'
-            priority
-            fill
-            sizes='5rem'
-            className='object-contain rounded-full'
-          />
+          <Image src='/media/coin-v1.png' alt='logo' priority fill sizes='5rem' className='object-contain rounded-full' />
         </div>
         <div className='hidden sm:inline'>
           <Glitch fontSize='30px'>$LAB Token</Glitch>
@@ -22,6 +16,10 @@ const Header = () => {
       </div>
 
       <div className='flex items-center'>
+        <div className='mr-4'>
+          <Navigation />
+        </div>
+
         <SocialIcon
           network='twitter'
           url='https://twitter.com/labarftoken'
