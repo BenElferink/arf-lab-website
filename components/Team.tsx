@@ -56,14 +56,14 @@ const Team = () => {
             titles: ['Founder'],
             description: 'NFT enthusiast, crypto investor, and has a lot of love for the Anatomy community',
             profilePicture: '/media/team/riicoo90.jpg',
-            socials: ['https://twitter.com/riicoo90', 'https://www.youtube.com/@Riicoo90'],
+            socials: ['https://x.com/riicoo90', 'https://www.youtube.com/@Riicoo90'],
           },
           {
             name: 'Psaeychi',
             titles: ['Community Manager', 'Graphic Designer'],
             description: 'CNFT Enthusiast, father of 3 children',
             profilePicture: '/media/team/psaeychi.png',
-            socials: ['https://twitter.com/psaeychicnft'],
+            socials: ['https://x.com/psaeychicnft'],
           },
           {
             name: 'Ben',
@@ -71,7 +71,7 @@ const Team = () => {
             description:
               'I started my career as Fullstack Developer in 2020 & have been involved in the crypto & NFT space since 2021.',
             profilePicture: '/media/team/ben.jpg',
-            socials: ['https://twitter.com/BenElferink', 'https://github.com/BenElferink'],
+            socials: ['https://x.com/BenElferink', 'https://github.com/BenElferink'],
           },
         ].map(({ profilePicture, name, titles, description, socials }) => (
           <TeamCard
