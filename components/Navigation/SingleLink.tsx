@@ -5,16 +5,18 @@ export interface SingleLinkProps {
   label: string
   path?: string
   url?: string
+  onClick?: () => void
 }
 
 const SingleLink = (props: SingleLinkProps) => {
-  const { label, path, url } = props
+  const { label, path, url, onClick } = props
   const router = useRouter()
   const selected = router.asPath === path // || router.pathname === path
 
   return (
     <Link
       scroll={false}
+      onClick={() => (onClick ? onClick() : null)}
       href={url || path || ''}
       target={!!url ? '_blank' : ''}
       rel={!!url ? 'noopener noreferrer' : ''}

@@ -1,14 +1,27 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import SingleLink from './SingleLink'
+import Script from 'next/script'
+
+const HOST_STAKE_KEY = 'stake1u8fp9efr3u963ezaurly56xg6rvgs38hj2azmg0esc9ppqqkqj0dr'
 
 const Navigation = () => {
   const router = useRouter()
   const [isNavOpen, setIsNavOpen] = useState(false)
+  const giveawaysSdkRef = useRef(null)
 
   return (
     <nav className='flex items-center'>
+      <Script
+        src='https://labs.badfoxmc.com/sdk.min.js'
+        onReady={() => {
+          // @ts-ignore
+          const sdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: HOST_STAKE_KEY })
+          giveawaysSdkRef.current = sdk
+        }}
+      />
+
       <button
         type='button'
         onClick={() => setIsNavOpen((prev) => !prev)}
@@ -29,6 +42,20 @@ const Navigation = () => {
           </li>
           <li onClick={() => setIsNavOpen(false)}>
             <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
+          </li>
+
+          <li className='relative'>
+            <SingleLink
+              label='Giveaways'
+              onClick={() => {
+                // @ts-ignore
+                if (giveawaysSdkRef.current) giveawaysSdkRef.current.loadWallets({ injectId: 'inject-wallets' })
+              }}
+            />
+
+            <div id='inject-wallets' className='sm:absolute sm:-right-1/2 flex flex-col'>
+              {/* Wallets will be injected here */}
+            </div>
           </li>
         </ul>
       </div>
