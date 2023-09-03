@@ -10,6 +10,7 @@ const Navigation = () => {
   const router = useRouter()
   const [isNavOpen, setIsNavOpen] = useState(false)
   const giveawaysSdkRef = useRef(null)
+  const pollsSdkRef = useRef(null)
 
   return (
     <nav className='flex items-center'>
@@ -17,8 +18,12 @@ const Navigation = () => {
         src='https://labs.badfoxmc.com/sdk.min.js'
         onReady={() => {
           // @ts-ignore
-          const sdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: HOST_STAKE_KEY })
-          giveawaysSdkRef.current = sdk
+          const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: HOST_STAKE_KEY })
+          giveawaysSdkRef.current = giveawaysSdk
+
+          // @ts-ignore
+          const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: HOST_STAKE_KEY })
+          pollsSdkRef.current = pollsSdk
         }}
       />
 
@@ -40,22 +45,49 @@ const Navigation = () => {
           >
             <SingleLink label='Home' path='/' />
           </li>
-          <li onClick={() => setIsNavOpen(false)}>
-            <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
+
+          <li className='relative'>
+            <SingleLink
+              label='Governance'
+              onClick={() => {
+                const injectEl = document.getElementById('inject-wallets-polls')
+
+                if (injectEl?.children.length) {
+                  injectEl.innerText = ''
+                } else if (pollsSdkRef.current) {
+                  // @ts-ignore
+                  pollsSdkRef.current.loadWallets({ injectId: 'inject-wallets-polls' })
+                }
+              }}
+            />
+
+            <div id='inject-wallets-polls' className='sm:absolute sm:-right-1/2 flex flex-col'>
+              {/* Wallets will be injected here */}
+            </div>
           </li>
 
           <li className='relative'>
             <SingleLink
               label='Giveaways'
               onClick={() => {
-                // @ts-ignore
-                if (giveawaysSdkRef.current) giveawaysSdkRef.current.loadWallets({ injectId: 'inject-wallets' })
+                const injectEl = document.getElementById('inject-wallets-giveaways')
+
+                if (injectEl?.children.length) {
+                  injectEl.innerText = ''
+                } else if (giveawaysSdkRef.current) {
+                  // @ts-ignore
+                  giveawaysSdkRef.current.loadWallets({ injectId: 'inject-wallets-giveaways' })
+                }
               }}
             />
 
-            <div id='inject-wallets' className='sm:absolute sm:-right-1/2 flex flex-col'>
+            <div id='inject-wallets-giveaways' className='sm:absolute sm:-right-1/2 flex flex-col'>
               {/* Wallets will be injected here */}
             </div>
+          </li>
+
+          <li onClick={() => setIsNavOpen(false)}>
+            <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
           </li>
         </ul>
       </div>
