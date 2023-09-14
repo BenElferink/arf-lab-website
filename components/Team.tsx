@@ -32,9 +32,9 @@ const TeamCard = (props: {
           <SocialIcon
             key={`social-${url}`}
             url={url}
-            color='#e4e4e7'
-            size='w-5 h-5'
-            className='p-1 rounded-lg hover:bg-[var(--orange)]'
+            color='#fff'
+            size='w-6 h-6'
+            className='p-1 rounded-lg hover:bg-zinc-500'
           />
         ))}
       </div>
@@ -67,7 +67,7 @@ const Team = () => {
           },
           {
             name: 'Ben',
-            titles: ['Web Developer'],
+            titles: ['Fullstack Developer'],
             description:
               'I started my career as Fullstack Developer in 2020 & have been involved in the crypto & NFT space since 2021.',
             profilePicture: '/media/team/ben.jpg',

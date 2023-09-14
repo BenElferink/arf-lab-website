@@ -20,7 +20,7 @@ const data = [
       },
       {
         checked: true,
-        title: 'New X (Twitter)',
+        title: 'New X/Twitter',
       },
       {
         checked: true,
@@ -118,7 +118,9 @@ const Roadmap = () => {
             {phase.events.map((event) => (
               <div
                 key={event.title}
-                className={`rounded-lg bg-neutral-900/70 ${styles.event} ${!isMobile ? (isLeft ? styles.leftEvent : styles.rightEvent) : styles.mobileEvent}`}
+                className={`rounded-lg bg-neutral-900/70 ${styles.event} ${
+                  !isMobile ? (isLeft ? styles.leftEvent : styles.rightEvent) : styles.mobileEvent
+                }`}
               >
                 <h3 className='text-zinc-400'>
                   {event.checked ? <CheckCircleIcon className='w-6 h-6' /> : <MinusCircleIcon className='w-6 h-6' />}

@@ -16,23 +16,23 @@ const Header = () => {
       </div>
 
       <div className='flex items-center'>
-        <div className='mr-4'>
+        <div className='mr-2'>
           <Navigation />
         </div>
 
         <SocialIcon
-          network='twitter'
-          url='https://twitter.com/labarftoken'
-          color=''
+          network='x'
+          url='https://x.com/labarftoken'
+          color='#fff'
           size='w-10 h-10'
-          className='p-1 mx-1 rounded-lg hover:bg-blue-900 focus:outline-none focus:ring-blue-800 focus:ring-2'
+          className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
         />
         <SocialIcon
           network='discord'
           url='https://discord.gg/szF6G9gYwy'
-          color=''
+          color='#fff'
           size='w-10 h-10'
-          className='p-1 mx-1 rounded-lg hover:bg-purple-900 focus:outline-none focus:ring-purple-800 focus:ring-2'
+          className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
         />
       </div>
     </header>
