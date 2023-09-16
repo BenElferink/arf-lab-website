@@ -1,15 +1,15 @@
 {
-  "name": "lab-token-website",
+  "name": "lab-token",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "https://lab-token.com",
   "author": "Ben Elferink <ben.elferink@icloud.com> (https://www.linkedin.com/in/ben-elferink-37ba251b9)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BenElferink/lab-token-website.git"
+    "url": "https://github.com/BenElferink/lab-token.git"
   },
   "bugs": {
-    "url": "https://github.com/BenElferink/lab-token-website/issues",
+    "url": "https://github.com/BenElferink/lab-token/issues",
     "email": "ben.elferink@icloud.com"
   },
   "scripts": {
