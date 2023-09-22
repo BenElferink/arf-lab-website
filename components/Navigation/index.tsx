@@ -36,7 +36,7 @@ const Navigation = () => {
       </button>
 
       <div className={(isNavOpen ? 'block' : 'hidden') + ' sm:block'}>
-        <ul className='flex flex-col sm:flex-row absolute right-0 sm:static overflow-auto sm:overflow-visible max-h-[80vh] sm:max-h-auto w-60 sm:w-auto mt-8 sm:mt-0 p-4 sm:px-8 sm:space-x-10 bg-zinc-900 sm:bg-transparent rounded-lg border-2 border-green-400'>
+        <ul className='flex flex-col sm:flex-row absolute right-0 sm:static overflow-auto sm:overflow-visible max-h-[80vh] sm:max-h-auto w-60 sm:w-auto mt-8 sm:mt-0 p-4 sm:px-8 sm:space-x-10 bg-zinc-900 sm:bg-transparent rounded-lg border border-green-400'>
           <li
             onClick={() => {
               if (router.pathname === '/') window.scrollTo({ top: 0 })
@@ -91,19 +91,6 @@ const Navigation = () => {
           </li>
         </ul>
       </div>
-
-      {/* <div className='hidden md:block'>
-        <Link
-          href='/wallet'
-          onClick={() => window.scroll({ top: 0, left: 0 })}
-          className={
-            'mx-2 p-4 rounded-lg text-sm ' +
-            (router.pathname === '/wallet' ? 'bg-zinc-700 text-white' : 'bg-zinc-900 hover:bg-zinc-700 hover:text-white')
-          }
-        >
-          Wallet
-        </Link>
-      </div> */}
     </nav>
   )
 }

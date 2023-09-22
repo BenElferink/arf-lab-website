@@ -16,24 +16,24 @@ const Header = () => {
       </div>
 
       <div className='flex items-center'>
-        <div className='mr-2'>
-          <Navigation />
-        </div>
+        <Navigation />
 
-        <SocialIcon
-          network='x'
-          url='https://x.com/labarftoken'
-          color='#fff'
-          size='w-10 h-10'
-          className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
-        />
-        <SocialIcon
-          network='discord'
-          url='https://discord.gg/szF6G9gYwy'
-          color='#fff'
-          size='w-10 h-10'
-          className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
-        />
+        <div className='mx-4 flex items-center'>
+          <SocialIcon
+            network='x'
+            url='https://x.com/labarftoken'
+            color='#fff'
+            size='w-8 h-8'
+            className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
+          />
+          <SocialIcon
+            network='discord'
+            url='https://discord.gg/szF6G9gYwy'
+            color='#fff'
+            size='w-8 h-8'
+            className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
+          />
+        </div>
       </div>
     </header>
   )
