@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -25,9 +26,10 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <Header />
-      <main className='w-screen min-h-screen bg-black bg-opacity-70'>
+      <main className='w-screen min-h-screen bg-black/70'>
         <Component {...pageProps} />
       </main>
+      <Footer />
     </Fragment>
   )
 }
