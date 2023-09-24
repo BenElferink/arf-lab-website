@@ -24,7 +24,7 @@ const Footer = () => {
             className='w-16 h-20 m-2 flex flex-col items-center justify-between'
           >
             <h6 className='mb-1 text-sm'>{obj.name}</h6>
-            <Image src={obj.logoUrl} alt={obj.name} width={64} height={64} className='drop-shadow-[0_1px_0_rgb(255_255_255_/_0.8)]' />
+            <Image src={obj.logoUrl} alt={obj.name} width={64} height={64} className='drop-shadow-[0_-1px_1px_white]' />
           </Link>
         ))}
       </div>
