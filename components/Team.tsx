@@ -40,7 +40,7 @@ const TeamCard = (props: TeamMember) => {
 
 const Team = () => {
   return (
-    <div id='team' className='mt-40'>
+    <div id='team' className='mt-40 mb-40'>
       <div className='flex items-center justify-center'>
         <Glitch>Team</Glitch>
       </div>

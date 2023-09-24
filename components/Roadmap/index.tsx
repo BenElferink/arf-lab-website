@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import { MinusCircleIcon } from '@heroicons/react/24/outline'
 import useScreenSize from '@/hooks/useScreenSize'
@@ -94,7 +93,6 @@ const data = [
 
 const Roadmap = () => {
   const { isMobile } = useScreenSize()
-  const router = useRouter()
 
   return (
     <div id='roadmap' className='w-full mt-40'>
@@ -118,11 +116,11 @@ const Roadmap = () => {
             {phase.events.map((event) => (
               <div
                 key={event.title}
-                className={`rounded-lg bg-neutral-900/70 ${styles.event} ${
+                className={`rounded-lg bg-zinc-950/50 ${styles.event} ${
                   !isMobile ? (isLeft ? styles.leftEvent : styles.rightEvent) : styles.mobileEvent
                 }`}
               >
-                <h3 className='text-zinc-400'>
+                <h3 className='text-sm text-zinc-300'>
                   {event.checked ? <CheckCircleIcon className='w-6 h-6' /> : <MinusCircleIcon className='w-6 h-6' />}
                   {event.title}
                 </h3>
