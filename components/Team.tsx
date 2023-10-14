@@ -14,7 +14,7 @@ const TeamCard = (props: TeamMember) => {
   const { profilePicture, name, titles, description, socials } = props
 
   return (
-    <article className='flex flex-col items-center justify-center w-72 m-2 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-[0_0_5px_0_#4ade80]'>
+    <article className='flex flex-col items-center justify-center w-72 m-2 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-neon'>
       <div className='h-40 w-40 mt-2 mb-5 relative'>
         <Image src={profilePicture} alt={name} fill sizes='10rem' className='object-cover rounded-full' />
       </div>

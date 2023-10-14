@@ -113,7 +113,7 @@ const Tokenomics = () => {
         {TOKENOMICS.map((obj, i) => (
           <div
             key={`tokenomics-info-${obj.label}`}
-            className='max-w-[42ch] group grow m-2 p-5 rounded-lg border border-green-400 shadow-[0_0_5px_0_#4ade80] bg-neutral-900/70'
+            className='max-w-[42ch] group grow m-2 p-5 rounded-lg border border-green-400 shadow-neon bg-neutral-900/70'
           >
             <h2 className='mb-3 font-semibold text-2xl text-zinc-200'>
               {obj.label}&nbsp;

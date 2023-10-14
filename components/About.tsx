@@ -7,7 +7,7 @@ const About = () => {
         <Glitch>Our Story</Glitch>
       </div>
 
-      <div className='max-w-xl m-2 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-[0_0_5px_0_#4ade80]'>
+      <div className='max-w-xl m-2 p-5 bg-neutral-900/70 rounded-xl border border-green-400 shadow-neon'>
         <p className='my-4 text-zinc-400'>
           Anatomy NFT was created by NFT enthusiasts, and the art created is top notch. Unfortunately due to some
           complications within the Lab some experiments failed and barely made it.
