@@ -22,7 +22,7 @@ const SingleLink = (props: SingleLinkProps) => {
       rel={!!url ? 'noopener noreferrer' : ''}
       className={
         (selected ? 'text-white underline' : 'text-zinc-300 hover:text-white hover:underline') +
-        ' block py-2 px-3 sm:p-0 w-full sm:w-auto text-start sm:text-center text-sm rounded truncate hover:bg-zinc-700 sm:hover:bg-transparent'
+        ' block py-2 px-3 lg:p-0 w-full lg:w-auto text-start lg:text-center text-sm rounded truncate hover:bg-zinc-700 lg:hover:bg-transparent'
       }
     >
       {label}

@@ -1,10 +1,9 @@
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import SingleLink from './SingleLink'
-import Script from 'next/script'
-
-const HOST_STAKE_KEY = 'stake1u8fp9efr3u963ezaurly56xg6rvgs38hj2azmg0esc9ppqqkqj0dr'
+import { RIICOO_STAKE_KEY } from '@/constants'
 
 const Navigation = () => {
   const router = useRouter()
@@ -18,11 +17,11 @@ const Navigation = () => {
         src='https://labs.badfoxmc.com/sdk.min.js'
         onReady={() => {
           // @ts-ignore
-          const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: HOST_STAKE_KEY })
+          const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY })
           giveawaysSdkRef.current = giveawaysSdk
 
           // @ts-ignore
-          const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: HOST_STAKE_KEY })
+          const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: RIICOO_STAKE_KEY })
           pollsSdkRef.current = pollsSdk
         }}
       />
@@ -30,13 +29,13 @@ const Navigation = () => {
       <button
         type='button'
         onClick={() => setIsNavOpen((prev) => !prev)}
-        className='sm:hidden flex items-center p-1 mx-1 rounded-lg text-sm hover:bg-zinc-700 focus:outline-none focus:ring-zinc-600 focus:ring-2'
+        className='lg:hidden flex items-center p-1 mx-1 rounded-lg text-sm hover:bg-zinc-700 focus:outline-none focus:ring-zinc-600 focus:ring-2'
       >
         <Bars3Icon className='w-7 h-7' />
       </button>
 
-      <div className={(isNavOpen ? 'block' : 'hidden') + ' sm:block'}>
-        <ul className='flex flex-col sm:flex-row absolute right-0 sm:static overflow-auto sm:overflow-visible max-h-[80vh] sm:max-h-auto w-60 sm:w-auto mt-8 sm:mt-0 p-4 sm:px-8 sm:space-x-10 bg-zinc-900 sm:bg-transparent rounded-lg border border-green-400'>
+      <div className={(isNavOpen ? 'block' : 'hidden') + ' lg:block'}>
+        <ul className='flex flex-col lg:flex-row absolute right-0 lg:static overflow-auto lg:overflow-visible max-h-[80vh] lg:max-h-auto w-60 lg:w-auto mt-8 lg:mt-0 p-4 lg:px-8 lg:space-x-10 bg-zinc-900 lg:bg-transparent rounded-lg border border-green-400'>
           <li
             onClick={() => {
               if (router.pathname === '/') window.scrollTo({ top: 0 })
@@ -61,7 +60,7 @@ const Navigation = () => {
               }}
             />
 
-            <div id='inject-wallets-polls' className='sm:absolute sm:-right-1/2 flex flex-col'>
+            <div id='inject-wallets-polls' className='lg:absolute lg:-right-1/2 flex flex-col'>
               {/* Wallets will be injected here */}
             </div>
           </li>
@@ -81,13 +80,22 @@ const Navigation = () => {
               }}
             />
 
-            <div id='inject-wallets-giveaways' className='sm:absolute sm:-right-1/2 flex flex-col'>
+            <div id='inject-wallets-giveaways' className='lg:absolute lg:-right-1/2 flex flex-col'>
               {/* Wallets will be injected here */}
             </div>
           </li>
 
           <li onClick={() => setIsNavOpen(false)}>
             <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
+          </li>
+
+          <li
+            onClick={() => {
+              if (router.pathname === '/takeovers') window.scrollTo({ top: 0 })
+              setIsNavOpen(false)
+            }}
+          >
+            <SingleLink label='Takeovers' path='/takeovers' />
           </li>
         </ul>
       </div>

@@ -1,0 +1,1 @@
+export const RIICOO_STAKE_KEY = 'stake1u8fp9efr3u963ezaurly56xg6rvgs38hj2azmg0esc9ppqqkqj0dr'

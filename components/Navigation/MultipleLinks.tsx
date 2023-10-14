@@ -26,8 +26,8 @@ const MultipleLinks = (props: MultipleLinksProps) => {
           })
         }
         className={
-          (open ? 'bg-gray-800 sm:bg-transparent sm:text-white ' : '') +
-          'py-2 px-3 sm:p-0 w-full sm:w-auto flex items-center text-start sm:text-center text-sm truncate rounded sm:border-0 hover:bg-gray-700 sm:hover:bg-transparent hover:text-white'
+          (open ? 'bg-gray-800 lg:bg-transparent lg:text-white ' : '') +
+          'py-2 px-3 lg:p-0 w-full lg:w-auto flex items-center text-start lg:text-center text-sm truncate rounded lg:border-0 hover:bg-gray-700 lg:hover:bg-transparent hover:text-white'
         }
       >
         {title}
@@ -37,12 +37,12 @@ const MultipleLinks = (props: MultipleLinksProps) => {
       <div className={open ? 'block' : 'hidden'}>
         <ul
           onClick={() => dropdownState.setValue('')}
-          className='sm:flex sm:flex-col sm:items-start sm:absolute sm:top-12 sm:-left-4 sm:overflow-auto sm:w-fit sm:p-4 sm:bg-gray-900 sm:border-gray-700 sm:rounded-xl'
+          className='lg:flex lg:flex-col lg:items-start lg:absolute lg:top-12 lg:-left-4 lg:overflow-auto lg:w-fit lg:p-4 lg:bg-gray-900 lg:border-gray-700 lg:rounded-xl'
         >
           {links.map((obj) => (
             <li
               key={`link-group-${title}-item-${obj.label}`}
-              className='sm:py-1 bg-gray-800 sm:bg-transparent rounded'
+              className='lg:py-1 bg-gray-800 lg:bg-transparent rounded'
             >
               <SingleLink {...obj} />
             </li>
