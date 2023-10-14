@@ -5,7 +5,7 @@ import Roadmap from '@/components/Roadmap'
 import Partnerships from '@/components/Partnerships'
 import Team from '@/components/Team'
 
-export default function Home() {
+const Page = () => {
   return (
     <main className='flex flex-col items-center'>
       <Landing />
@@ -17,3 +17,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Page
