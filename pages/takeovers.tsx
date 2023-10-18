@@ -31,15 +31,17 @@ const Page = () => {
         <Glitch>Community Takeover Hub</Glitch>
       </div>
 
-      <div className='max-w-7xl my-20 flex flex-wrap items-center justify-center'>
-        {projects.map((proj) => (
-          <div key={proj.id} className='m-2 cursor-pointer hover:scale-110 transition-all' onClick={() => setSelectedProjectId(proj.id)}>
-            <MediaViewer mediaType='IMAGE' src={proj.logo} size='w-[220px] h-[220px] rounded-full' />
-          </div>
-        ))}
-      </div>
+      {projects.length ? (
+        <div className='max-w-7xl mt-20 flex flex-wrap items-center justify-center'>
+          {projects.map((proj) => (
+            <div key={proj.id} className='m-2 cursor-pointer hover:scale-110 transition-all' onClick={() => setSelectedProjectId(proj.id)}>
+              <MediaViewer mediaType='IMAGE' src={proj.logo} size='w-[220px] h-[220px] rounded-full' />
+            </div>
+          ))}
+        </div>
+      ) : null}
 
-      <div className='max-w-xl m-2 p-5 flex flex-col items-center bg-neutral-900/70 rounded-xl border border-green-400 shadow-neon'>
+      <div className='max-w-xl m-2 mt-20 p-5 flex flex-col items-center bg-neutral-900/70 rounded-xl border border-green-400 shadow-neon'>
         <h6 className='text-center text-lg font-medium text-zinc-300'>What is Lab Token&apos;s Community Takeover Hub?</h6>
 
         <p className='max-w-[87%] my-4 text-justify text-zinc-400'>
@@ -77,7 +79,7 @@ const Page = () => {
               </div>
 
               {proj.description || true ? (
-                <p className='text-sm text-zinc-400'>
+                <p className='max-w-[420px] mt-4 text-sm text-zinc-400'>
                   {proj.description.split('\n').map((str, idx) => (
                     <Fragment key={`str-${idx}-${str}`}>
                       {str}
