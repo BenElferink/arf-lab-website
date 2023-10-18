@@ -1,8 +1,9 @@
-import { Fragment } from 'react'
-import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { Fragment } from 'react'
+import { Toaster } from 'react-hot-toast'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import type { AppProps } from 'next/app'
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>$LAB Token</title>
       </Head>
 
+      <Toaster />
       <Header />
       <main className='w-screen min-h-screen bg-black/70'>
         <Component {...pageProps} />

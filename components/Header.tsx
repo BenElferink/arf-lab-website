@@ -23,14 +23,12 @@ const Header = () => {
             network='x'
             url='https://x.com/labarftoken'
             color='#fff'
-            size='w-8 h-8'
             className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
           />
           <SocialIcon
             network='discord'
             url='https://discord.gg/szF6G9gYwy'
             color='#fff'
-            size='w-8 h-8'
             className='p-1 mx-1 rounded-lg hover:bg-zinc-600 focus:outline-none focus:ring-zinc-500 focus:ring-2'
           />
         </div>
