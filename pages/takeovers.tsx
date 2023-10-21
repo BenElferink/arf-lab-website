@@ -16,7 +16,9 @@ const Page = () => {
     const collection = firestore.collection('projects')
     const { docs } = await collection.get()
 
-    setProjects((docs.map((doc) => ({ ...doc.data(), id: doc.id })) as typeof projects).sort((a, b) => a.name.localeCompare(b.name)))
+    const payload = (docs.map((doc) => ({ ...doc.data(), id: doc.id })) as typeof projects).sort((a, b) => a.name.localeCompare(b.name))
+
+    setProjects(payload)
   }
 
   useEffect(() => {
