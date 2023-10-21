@@ -89,14 +89,14 @@ const Navigation = () => {
             <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
           </li>
 
-          {/* <li
+          <li
             onClick={() => {
               if (router.pathname === '/takeovers') window.scrollTo({ top: 0 })
               setIsNavOpen(false)
             }}
           >
             <SingleLink label='Takeovers' path='/takeovers' />
-          </li> */}
+          </li>
         </ul>
       </div>
     </nav>
