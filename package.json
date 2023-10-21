@@ -19,6 +19,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blockfrost/blockfrost-js": "^5.4.0",
     "@heroicons/react": "^2.0.18",
     "chart.js": "^4.4.0",
     "firebase": "^10.5.0",
