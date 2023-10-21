@@ -16,7 +16,7 @@ const Page = () => {
     const collection = firestore.collection('projects')
     const { docs } = await collection.get()
 
-    setProjects(docs.map((doc) => ({ ...doc.data(), id: doc.id })) as typeof projects)
+    setProjects((docs.map((doc) => ({ ...doc.data(), id: doc.id })) as typeof projects).sort((a, b) => a.name.localeCompare(b.name)))
   }
 
   useEffect(() => {
@@ -34,8 +34,18 @@ const Page = () => {
       {projects.length ? (
         <div className='max-w-7xl mt-20 flex flex-wrap items-center justify-center'>
           {projects.map((proj) => (
-            <div key={proj.id} className='m-2 cursor-pointer hover:scale-110 transition-all' onClick={() => setSelectedProjectId(proj.id)}>
-              <MediaViewer mediaType='IMAGE' src={proj.logo} size='w-[220px] h-[220px] rounded-full' />
+            <div
+              key={proj.id}
+              className='m-2 rounded-full cursor-pointer hover:scale-110 transition-all'
+              onClick={() => setSelectedProjectId(proj.id)}
+            >
+              <MediaViewer
+                mediaType='IMAGE'
+                src={proj.logo}
+                objectFit='cover'
+                withBorder
+                size='w-[75vw] h-[75vw] sm:w-[300px] sm:h-[300px] rounded-full'
+              />
             </div>
           ))}
         </div>
@@ -70,7 +80,7 @@ const Page = () => {
             <div className='flex flex-col items-center text-center'>
               <h5 className='mb-4 text-lg text-zinc-300'>{proj.name}</h5>
 
-              <MediaViewer mediaType='IMAGE' src={proj.logo} size='w-[220px] h-[220px] rounded-full' />
+              <MediaViewer mediaType='IMAGE' src={proj.logo} objectFit='cover' withBorder size='rounded-xl' />
 
               <div className='my-2 flex'>
                 {proj.links.map((url) => (

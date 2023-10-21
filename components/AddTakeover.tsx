@@ -91,7 +91,7 @@ const AddTakeover = (props: { onSubmitted: () => void }) => {
       <div className='flex flex-col'>
         {projLogo ? (
           <div className='mx-auto'>
-            <MediaViewer mediaType='IMAGE' src={projLogo} size='w-[220px] h-[220px] rounded-full' withBorder />
+            <MediaViewer mediaType='IMAGE' src={projLogo} objectFit='cover' withBorder size='rounded-xl' />
           </div>
         ) : (
           <Fragment>
