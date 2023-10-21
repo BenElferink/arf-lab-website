@@ -64,7 +64,17 @@ const AddTakeover = (props: { onSubmitted: () => void }) => {
       links: [projTwitterLink, projDiscordLink, projWebsiteLink]
         .concat(projLinks)
         .filter((str) => !!str)
-        .map((str) => str.split('?')[0]),
+        .map((str) => {
+          const baseUrl = str.split('?')[0]
+
+          if (baseUrl.indexOf('https://')) {
+            return baseUrl
+          } else if (baseUrl.indexOf('http://') === 0) {
+            return baseUrl.replace('http://', 'https://')
+          } else {
+            return `https://${baseUrl}`
+          }
+        }),
     }
 
     await collection.add(payload)
