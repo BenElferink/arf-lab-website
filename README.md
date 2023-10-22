@@ -1,1 +1,3 @@
-## A [website](https://www.lab-token.com/) for the $LAB Token project.
+# $LAB Token
+
+- [Website](https://www.lab-token.com/)
