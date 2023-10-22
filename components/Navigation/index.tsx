@@ -1,30 +1,55 @@
 import Script from 'next/script'
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import axios from 'axios'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import SingleLink from './SingleLink'
-import { RIICOO_STAKE_KEY } from '@/constants'
+import type { PolicyId, StakeKey } from '@/@types'
+import type { PolicyHoldersResponse } from '@/pages/api/policy/[policy_id]/holders'
+import { POLICY_IDS, RIICOO_STAKE_KEY } from '@/constants'
 
 const Navigation = () => {
-  const router = useRouter()
-  const [isNavOpen, setIsNavOpen] = useState(false)
   const giveawaysSdkRef = useRef(null)
   const pollsSdkRef = useRef(null)
 
+  const router = useRouter()
+  const [isNavOpen, setIsNavOpen] = useState(false)
+
+  const [labPassHolderStakeKeys, setLabPassHolderStakeKeys] = useState<StakeKey[]>([])
+
+  const fetchStakeKeys = async (policyId: PolicyId): Promise<StakeKey[]> => {
+    try {
+      const res = await axios.get<PolicyHoldersResponse>(`/api/policy/${policyId}/holders`)
+
+      return res.data.stakeKeys
+    } catch (error: any) {
+      console.error(error.message)
+      return []
+    }
+  }
+
+  useEffect(() => {
+    fetchStakeKeys(POLICY_IDS['LAB_PASS']).then((sKeys) => setLabPassHolderStakeKeys(sKeys))
+  }, [])
+
   return (
     <nav className='flex items-center'>
-      <Script
-        src='https://labs.badfoxmc.com/sdk.min.js'
-        onReady={() => {
-          // @ts-ignore
-          const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY })
-          giveawaysSdkRef.current = giveawaysSdk
+      {labPassHolderStakeKeys.length ? (
+        <Script
+          src='https://labs.badfoxmc.com/sdk.min.js'
+          onReady={() => {
+            // const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY, otherStakeKeys: labPassHolderStakeKeys })
 
-          // @ts-ignore
-          const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: RIICOO_STAKE_KEY })
-          pollsSdkRef.current = pollsSdk
-        }}
-      />
+            // @ts-ignore
+            const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY })
+            giveawaysSdkRef.current = giveawaysSdk
+
+            // @ts-ignore
+            const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: RIICOO_STAKE_KEY })
+            pollsSdkRef.current = pollsSdk
+          }}
+        />
+      ) : null}
 
       <button
         type='button'
@@ -55,7 +80,7 @@ const Navigation = () => {
                   injectEl.innerText = ''
                 } else if (pollsSdkRef.current) {
                   // @ts-ignore
-                  pollsSdkRef.current.loadWallets({ injectId: 'inject-wallets-polls' })
+                  pollsSdkRef.current?.loadWallets({ injectId: 'inject-wallets-polls' })
                 }
               }}
             />
@@ -75,7 +100,7 @@ const Navigation = () => {
                   injectEl.innerText = ''
                 } else if (giveawaysSdkRef.current) {
                   // @ts-ignore
-                  giveawaysSdkRef.current.loadWallets({ injectId: 'inject-wallets-giveaways' })
+                  giveawaysSdkRef.current?.loadWallets({ injectId: 'inject-wallets-giveaways' })
                 }
               }}
             />

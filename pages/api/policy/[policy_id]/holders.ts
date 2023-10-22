@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import blockfrost from '@/utils/blockfrost'
 import { firestore } from '@/utils/firebase'
-import type { StakeKey } from '@/@types'
+import type { PolicyId, StakeKey } from '@/@types'
 import { POLICY_IDS } from '@/constants'
 
 export const config = {
@@ -10,7 +10,12 @@ export const config = {
   },
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+export interface PolicyHoldersResponse {
+  policyId: PolicyId
+  stakeKeys: StakeKey[]
+}
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<PolicyHoldersResponse>) => {
   const { method, query } = req
 
   const policyId = query.policy_id?.toString()
