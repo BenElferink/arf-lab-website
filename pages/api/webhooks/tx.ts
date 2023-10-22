@@ -130,11 +130,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           const docId = docs[0].id
 
           await collection.doc(docId).update({
-            stakeKeys: FieldValue.arrayRemove(removeHolderStakeKeys.concat(addHolderStakeKeys)),
+            stakeKeys: FieldValue.arrayRemove(...removeHolderStakeKeys.concat(addHolderStakeKeys)),
           })
 
-          await collection.doc(docId).set({
-            stakeKeys: FieldValue.arrayUnion(addHolderStakeKeys),
+          await collection.doc(docId).update({
+            stakeKeys: FieldValue.arrayUnion(...addHolderStakeKeys),
           })
         } else {
           await collection.add({
