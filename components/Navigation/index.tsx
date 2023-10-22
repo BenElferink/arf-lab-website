@@ -38,14 +38,12 @@ const Navigation = () => {
         <Script
           src='https://labs.badfoxmc.com/sdk.min.js'
           onReady={() => {
-            // const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY, otherStakeKeys: labPassHolderStakeKeys })
-
             // @ts-ignore
-            const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY })
+            const giveawaysSdk = new BadLabsSDK({ product: 'giveaways', creatorStakeKey: RIICOO_STAKE_KEY, otherStakeKeys: labPassHolderStakeKeys })
             giveawaysSdkRef.current = giveawaysSdk
 
             // @ts-ignore
-            const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: RIICOO_STAKE_KEY })
+            const pollsSdk = new BadLabsSDK({ product: 'polls', creatorStakeKey: RIICOO_STAKE_KEY, otherStakeKeys: labPassHolderStakeKeys })
             pollsSdkRef.current = pollsSdk
           }}
         />
