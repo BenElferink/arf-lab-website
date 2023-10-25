@@ -67,7 +67,7 @@ const AddTakeover = (props: { onSubmitted: () => void }) => {
         .map((str) => {
           const baseUrl = str.split('?')[0]
 
-          if (baseUrl.indexOf('https://')) {
+          if (baseUrl.indexOf('https://') === 0) {
             return baseUrl
           } else if (baseUrl.indexOf('http://') === 0) {
             return baseUrl.replace('http://', 'https://')
