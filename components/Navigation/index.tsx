@@ -72,11 +72,7 @@ const Navigation = () => {
             <SingleLink
               label='Governance'
               onClick={() => {
-                const injectEl = document.getElementById('inject-wallets-polls')
-
-                if (injectEl?.children.length) {
-                  injectEl.innerText = ''
-                } else if (pollsSdkRef.current) {
+                if (pollsSdkRef.current) {
                   // @ts-ignore
                   pollsSdkRef.current?.loadWallets({ injectId: 'inject-wallets-polls' })
                 }
@@ -92,11 +88,7 @@ const Navigation = () => {
             <SingleLink
               label='Giveaways'
               onClick={() => {
-                const injectEl = document.getElementById('inject-wallets-giveaways')
-
-                if (injectEl?.children.length) {
-                  injectEl.innerText = ''
-                } else if (giveawaysSdkRef.current) {
+                if (giveawaysSdkRef.current) {
                   // @ts-ignore
                   giveawaysSdkRef.current?.loadWallets({ injectId: 'inject-wallets-giveaways' })
                 }
