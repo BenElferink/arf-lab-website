@@ -13,6 +13,11 @@ const data = [
     url: 'https://spacetroopers.org',
     logoUrl: '/media/logo/spacetroopers.png',
   },
+  {
+    name: 'Cardano Lands',
+    url: 'https://cardanolands.com',
+    logoUrl: '/media/logo/cardanolands.png',
+  },
 ]
 
 const Partnerships = () => {
