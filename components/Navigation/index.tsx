@@ -68,6 +68,15 @@ const Navigation = () => {
             <SingleLink label='Home' path='/' />
           </li>
 
+          <li
+            onClick={() => {
+              if (router.pathname === '/takeovers') window.scrollTo({ top: 0 })
+              setIsNavOpen(false)
+            }}
+          >
+            <SingleLink label='Takeovers' path='/takeovers' />
+          </li>
+
           <li className='relative'>
             <SingleLink
               label='Governance'
@@ -104,13 +113,8 @@ const Navigation = () => {
             <SingleLink label='Staking' url='https://labtoken.staking.zip/' />
           </li>
 
-          <li
-            onClick={() => {
-              if (router.pathname === '/takeovers') window.scrollTo({ top: 0 })
-              setIsNavOpen(false)
-            }}
-          >
-            <SingleLink label='Takeovers' path='/takeovers' />
+          <li onClick={() => setIsNavOpen(false)}>
+            <SingleLink label='Mint' url='https://labtoken.bravemint.io/' />
           </li>
         </ul>
       </div>
