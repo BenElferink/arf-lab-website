@@ -54,19 +54,19 @@ const data = [
     chapter: 'Q4 2023',
     events: [
       {
-        checked: false,
+        checked: true,
         title: 'Lab Pass mint',
       },
       {
-        checked: false,
+        checked: true,
         title: 'Add Lab Pass to staking and drip services',
       },
       {
-        checked: false,
+        checked: true,
         title: 'Poker tournaments for Lab Pass holders',
       },
       {
-        checked: false,
+        checked: true,
         title: 'Website Updates',
       },
       {
@@ -116,7 +116,7 @@ const Roadmap = () => {
             {phase.events.map((event) => (
               <div
                 key={event.title}
-                className={`rounded-lg bg-zinc-950/50 ${styles.event} ${
+                className={`rounded-lg bg-zinc-900/50 backdrop-blur ${styles.event} ${
                   !isMobile ? (isLeft ? styles.leftEvent : styles.rightEvent) : styles.mobileEvent
                 }`}
               >

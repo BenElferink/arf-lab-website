@@ -5,7 +5,7 @@ import Navigation from './Navigation'
 
 const Header = () => {
   return (
-    <header className='w-screen py-4 px-2 bg-black bg-opacity-70 flex items-center justify-between sticky top-0 z-40'>
+    <header className='w-screen py-4 px-2 bg-black/70 flex items-center justify-between sticky top-0 z-40'>
       <div className='flex items-center'>
         <div className='h-16 w-16 relative'>
           <Image src='/media/coin-v1.png' alt='logo' priority fill sizes='5rem' className='object-contain rounded-full' />

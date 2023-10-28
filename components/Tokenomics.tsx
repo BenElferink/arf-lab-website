@@ -89,9 +89,7 @@ const Tokenomics = () => {
                   enabled: true,
                   callbacks: {
                     label: (item) =>
-                      `${item.formattedValue} (${Math.round(
-                        (100 / TOTAL_SUPPLY) * Number(item.formattedValue.replaceAll(',', ''))
-                      )}%)`,
+                      `${item.formattedValue} (${Math.round((100 / TOTAL_SUPPLY) * Number(item.formattedValue.replaceAll(',', '')))}%)`,
                   },
                 },
                 legend: {
@@ -113,7 +111,7 @@ const Tokenomics = () => {
         {TOKENOMICS.map((obj, i) => (
           <div
             key={`tokenomics-info-${obj.label}`}
-            className='max-w-[42ch] group grow m-2 p-5 rounded-lg border border-green-400 shadow-neon bg-neutral-900/70'
+            className='max-w-[42ch] group grow m-2 p-5 bg-neutral-900/50 rounded-lg border border-green-400 shadow-neon backdrop-blur'
           >
             <h2 className='mb-3 font-semibold text-2xl text-zinc-200'>
               {obj.label}&nbsp;

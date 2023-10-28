@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Fragment, useEffect, useState } from 'react'
 import { firestore } from '@/utils/firebase'
 import { PlusCircleIcon } from '@heroicons/react/24/outline'
@@ -34,7 +35,7 @@ const Page = () => {
       </div>
 
       {projects.length ? (
-        <div className='max-w-7xl mt-20 flex flex-wrap items-center justify-center'>
+        <div className='mt-20 mx-12 flex flex-wrap items-center justify-center'>
           {projects.map((proj) => (
             <div
               key={proj.id}
@@ -53,10 +54,20 @@ const Page = () => {
         </div>
       ) : null}
 
-      <div className='max-w-xl m-2 mt-20 p-5 flex flex-col items-center bg-neutral-900/70 rounded-xl border border-green-400 shadow-neon'>
-        <h6 className='text-center text-lg font-medium text-zinc-300'>What is Lab Token&apos;s Community Takeover Hub?</h6>
+      <div className='max-w-xl m-2 mt-20 p-5 flex flex-col items-center bg-neutral-900/50 rounded-xl border border-green-400 shadow-neon backdrop-blur'>
+        <h6 className='text-center text-xl font-medium text-zinc-300'>Welcome to the community takeover hub!</h6>
 
-        <p className='max-w-[87%] my-4 text-justify text-zinc-400'>
+        <p className='m-4 text-sm text-zinc-400'>
+          Sign up for any takeover project and enjoy a 50% discount on creating your staking platform with{' '}
+          <Link href='https://discord.gg/W9CQXVNEe5' target='_blank' rel='noopener noreferrer' className='text-blue-400 underline'>
+            Space Troopers
+          </Link>
+          . Our partners are committed to supporting projects like yours—take advantage of this exclusive offer!
+        </p>
+
+        <h6 className='text-center text-xl font-medium text-zinc-300'>What is the community takeover hub?</h6>
+
+        <p className='m-4 text-sm text-zinc-400'>
           Lab Token&apos;s Community Takeover Hub is a dedicated space for Rugged/Dead/Ghosted Projects. We support projects abandoned by original
           founders, offering a platform for easy connection and collaboration. Lab Token&apos;s involvement stems from its own experience, rebranding
           from Anatomy NFT. The hub&apos;s purpose is to unite struggling projects, fostering collaboration through initiatives like poker
@@ -71,6 +82,10 @@ const Page = () => {
           <PlusCircleIcon className='w-8 h-8 mr-2' />
           Add a Project
         </button>
+
+        <p className='m-4 text-sm text-red-400'>
+          This is only for takeover projects. If you are not a takeover project, your project will be deleted.
+        </p>
       </div>
 
       <Modal open={!!selectedProjectId} onClose={() => setSelectedProjectId('')}>
