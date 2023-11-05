@@ -18,6 +18,11 @@ const data = [
     url: 'https://cardanolands.com',
     logoUrl: '/media/logo/cardanolands.png',
   },
+  {
+    name: 'Very Important Dummies',
+    url: 'https://www.staydum.com',
+    logoUrl: '/media/logo/veryimportantdummies.png',
+  },
 ]
 
 const Partnerships = () => {
