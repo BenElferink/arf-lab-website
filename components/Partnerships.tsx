@@ -19,7 +19,7 @@ const data = [
     logoUrl: '/media/logo/cardanolands.png',
   },
   {
-    name: 'Very Important Dummies',
+    name: 'V.I.D',
     url: 'https://www.staydum.com',
     logoUrl: '/media/logo/veryimportantdummies.png',
   },
