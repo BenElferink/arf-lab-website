@@ -8,9 +8,9 @@ const Header = () => {
     <header className='w-screen py-4 px-2 bg-black/70 flex items-center justify-between sticky top-0 z-40'>
       <div className='flex items-center'>
         <div className='h-16 w-16 relative'>
-          <Image src='/media/coin-v1.png' alt='logo' priority fill sizes='5rem' className='object-contain rounded-full' />
+          <Image src='/media/arf_logo.png' alt='logo' priority fill sizes='5rem' className='object-contain rounded-full' />
         </div>
-        <div className='hidden sm:inline'>
+        <div className='hidden sm:inline ml-2'>
           <Glitch fontSize='30px'>$LAB Token</Glitch>
         </div>
       </div>
