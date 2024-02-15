@@ -11,7 +11,7 @@ const Header = () => {
           <Image src='/media/arf_logo.png' alt='logo' priority fill sizes='5rem' className='object-contain rounded-full' />
         </div>
         <div className='hidden sm:inline ml-2'>
-          <Glitch fontSize='30px'>$LAB Token</Glitch>
+          <Glitch fontSize='30px'>A.R.F</Glitch>
         </div>
       </div>
 

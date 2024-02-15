@@ -29,7 +29,7 @@ const Landing = () => {
   return (
     <div id='home' className='relative w-screen h-[92vh]'>
       <div className='mt-20 mx-4 flex justify-center text-center'>
-        <Glitch fontSize={windowWidth < 640 ? '42px' : '69px'}>Welcome to The A.R.F Lab!</Glitch>
+        <Glitch fontSize={windowWidth < 640 ? '42px' : '69px'}>Welcome to The A.R.F $LAB!</Glitch>
       </div>
 
       <div className='absolute bottom-0 left-0 xl:left-1/4 xl:-translate-x-1/3 transition-all duration-500'>
