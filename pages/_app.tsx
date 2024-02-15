@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
 
-        <title>$LAB Token</title>
+        <title>The A.R.F $LAB</title>
       </Head>
 
       <Toaster />
