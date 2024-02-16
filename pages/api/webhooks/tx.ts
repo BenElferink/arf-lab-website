@@ -6,7 +6,7 @@ import type { Address, StakeKey } from '@/@types'
 import { POLICY_IDS } from '@/constants'
 
 export const config = {
-  maxDuration: 300,
+  // maxDuration: 300,
   api: {
     responseLimit: false,
   },
