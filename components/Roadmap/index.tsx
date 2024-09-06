@@ -92,15 +92,15 @@ const data = [
 ]
 
 const Roadmap = () => {
-  const { isMobile } = useScreenSize()
+  // const { isMobile } = useScreenSize()
 
   return (
     <div id='roadmap' className='w-full mt-40'>
       <div className='mb-4 flex items-center justify-center'>
-        <Glitch>Roadmap</Glitch>
+        <Glitch>The Lab always cooks...</Glitch>
       </div>
 
-      {data.map((phase, idx) => {
+      {/* {data.map((phase, idx) => {
         const isLeft = idx % 2 !== 0
 
         return (
@@ -130,7 +130,7 @@ const Roadmap = () => {
             {isMobile ? <br /> : null}
           </div>
         )
-      })}
+      })} */}
     </div>
   )
 }
