@@ -1,106 +1,72 @@
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import { MinusCircleIcon } from '@heroicons/react/24/outline'
 import useScreenSize from '@/hooks/useScreenSize'
-import Glitch from '../Glitch'
+// import Glitch from '../Glitch'
 import styles from './Roadmap.module.css'
 
 const data = [
   {
     checked: true,
-    chapter: 'Q2 2023',
+    chapter: 'Airdrop Rewards',
     events: [
       {
         checked: true,
-        title: 'Drips of $LAB in server',
+        title: '200 $ADA',
       },
       {
         checked: true,
-        title: 'New Discord',
+        title: '15,500,000 $BANK',
       },
       {
         checked: true,
-        title: 'New X/Twitter',
-      },
-      {
-        checked: true,
-        title: 'Migrate & Merge',
+        title: '3,400 $OMNI',
       },
     ],
   },
   {
     checked: true,
-    chapter: 'Q3 2023',
+    chapter: 'Staking Rewards',
     events: [
       {
         checked: true,
-        title: 'Website Development',
+        title: '40,000,000 $BANK',
       },
       {
         checked: true,
-        title: 'Staking',
-      },
-      {
-        checked: true,
-        title: 'Giveaways',
-      },
-      {
-        checked: true,
-        title: 'Governance',
+        title: '93.957 $OMNI',
       },
     ],
   },
   {
     checked: true,
-    chapter: 'Q4 2023',
+    chapter: 'Total Rewards',
     events: [
       {
         checked: true,
-        title: 'Lab Pass mint',
+        title: 'Airdrops: 285 $ADA',
       },
       {
         checked: true,
-        title: 'Add Lab Pass to staking and drip services',
+        title: 'Staking: 1900 $ADA',
       },
       {
         checked: true,
-        title: 'Poker tournaments for Lab Pass holders',
-      },
-      {
-        checked: true,
-        title: 'Website Updates',
-      },
-      {
-        checked: false,
-        title: "VIP New Year's Eve Party",
-      },
-    ],
-  },
-  {
-    checked: false,
-    chapter: 'Q1 2024',
-    events: [
-      {
-        checked: false,
-        title: 'Design NFT (EXP 2 & EXP 3 & EXP 4 = EXP 5)',
-      },
-      {
-        checked: false,
-        title: 'Mint EXP V',
+        title: 'All Time: 2185 $ADA',
       },
     ],
   },
 ]
 
 const Roadmap = () => {
-  // const { isMobile } = useScreenSize()
+  const { isMobile } = useScreenSize()
 
   return (
     <div id='roadmap' className='w-full mt-40'>
-      <div className='mb-4 flex items-center justify-center'>
+      {/* <div className='mb-4 flex items-center justify-center'>
         <Glitch>The Lab always cooks...</Glitch>
-      </div>
+      </div> */}
 
-      {/* {data.map((phase, idx) => {
+      {data.map((phase, idx) => {
         const isLeft = idx % 2 !== 0
 
         return (
@@ -130,7 +96,7 @@ const Roadmap = () => {
             {isMobile ? <br /> : null}
           </div>
         )
-      })} */}
+      })}
     </div>
   )
 }

@@ -4,9 +4,9 @@ import Glitch from './Glitch'
 
 const data = [
   {
-    name: 'Bad Fox MC',
-    url: 'https://badfoxmc.com',
-    logoUrl: '/media/logo/badfoxmc.png',
+    name: 'Bad Labs',
+    url: 'https://labs.badfoxmc.com',
+    logoUrl: 'https://labs.badfoxmc.com/media/logo/badlabs.png',
   },
   {
     name: 'Space Troopers',
@@ -17,11 +17,6 @@ const data = [
     name: 'Cardano Lands',
     url: 'https://cardanolands.com',
     logoUrl: '/media/logo/cardanolands.png',
-  },
-  {
-    name: 'V.I.D',
-    url: 'https://www.staydum.com',
-    logoUrl: '/media/logo/veryimportantdummies.png',
   },
 ]
 

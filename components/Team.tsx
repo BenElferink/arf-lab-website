@@ -53,21 +53,30 @@ const Team = () => {
               titles: ['Founder'],
               description: 'NFT enthusiast, crypto investor, and has a lot of love for the Anatomy community',
               profilePicture: '/media/team/riicoo90.jpg',
-              socials: ['https://x.com/riicoo90', , 'https://discord.com/users/698650605677314108', 'https://www.youtube.com/@Riicoo90'],
+              socials: [
+                'https://x.com/intent/follow?screen_name=riicoo90',
+                ,
+                'https://discord.com/users/698650605677314108',
+                'https://www.youtube.com/@Riicoo90',
+              ],
             },
             {
               name: 'Psaeychi',
               titles: ['Community Manager', 'Graphic Designer'],
               description: 'CNFT Enthusiast, father of 3 children',
               profilePicture: '/media/team/psaeychi.png',
-              socials: ['https://x.com/psaeychicnft', 'https://discord.com/users/881884080445222933'],
+              socials: ['https://x.com/intent/follow?screen_name=psaeychicnft', 'https://discord.com/users/881884080445222933'],
             },
             {
               name: 'Ben',
               titles: ['Fullstack Developer'],
               description: 'I started my career as Fullstack Developer in 2020 & have been involved in the crypto & NFT space since 2021.',
-              profilePicture: '/media/team/ben.png',
-              socials: ['https://x.com/BenElferink', 'https://discord.com/users/791763515554922507', 'https://github.com/BenElferink'],
+              profilePicture: 'https://avatars.githubusercontent.com/u/69640911',
+              socials: [
+                'https://x.com/intent/follow?screen_name=BenElferink',
+                'https://discord.com/users/791763515554922507',
+                'https://github.com/BenElferink',
+              ],
             },
           ] as TeamMember[]
         ).map(({ profilePicture, name, titles, description, socials }) => (
