@@ -13,7 +13,7 @@ import TrashButton from './TrashButton'
 import MediaViewer from './MediaViewer'
 import type { TakeoverProject } from '@/@types'
 
-const AddTakeover = (props: { onSubmitted: () => void }) => {
+const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: string }) => void }) => {
   const { onSubmitted } = props
   const [projLogo, setProjLogo] = useState('')
   const [projName, setProjName] = useState('')
@@ -77,7 +77,7 @@ const AddTakeover = (props: { onSubmitted: () => void }) => {
         }),
     }
 
-    await collection.add(payload)
+    const { id } = await collection.add(payload)
 
     setProjLogo('')
     setProjName('')
@@ -91,7 +91,7 @@ const AddTakeover = (props: { onSubmitted: () => void }) => {
     toast.dismiss()
     toast.success('Submitted')
 
-    setTimeout(() => onSubmitted(), 0)
+    setTimeout(() => onSubmitted({ ...payload, id }), 0)
   }
 
   return (

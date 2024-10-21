@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { firestore } from '@/utils/firebase'
 import { PlusCircleIcon } from '@heroicons/react/24/outline'
 import Glitch from '@/components/Glitch'
@@ -8,24 +8,24 @@ import MediaViewer from '@/components/MediaViewer'
 import SocialIcon from '@/components/SocialIcon'
 import AddTakeover from '@/components/AddTakeover'
 import type { TakeoverProject } from '@/@types'
+import { GetServerSideProps } from 'next'
 
-const Page = () => {
-  const [projects, setProjects] = useState<(TakeoverProject & { id: string })[]>([])
+type Props = {
+  projects: (TakeoverProject & { id: string })[]
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const collection = firestore.collection('projects')
+  const { docs } = await collection.get()
+
+  const payload = docs.map((doc) => ({ ...(doc.data() as TakeoverProject), id: doc.id })).sort((a, b) => a.name.localeCompare(b.name))
+
+  return { props: { projects: payload } }
+}
+
+const Page = ({ projects: projectsFromServer }: Props) => {
+  const [projects, setProjects] = useState<(TakeoverProject & { id: string })[]>(projectsFromServer)
   const [selectedProjectId, setSelectedProjectId] = useState('')
-
-  const fetchProjects = async () => {
-    const collection = firestore.collection('projects')
-    const { docs } = await collection.get()
-
-    const payload = (docs.map((doc) => ({ ...doc.data(), id: doc.id })) as typeof projects).sort((a, b) => a.name.localeCompare(b.name))
-
-    setProjects(payload)
-  }
-
-  useEffect(() => {
-    fetchProjects()
-  }, [])
-
   const [openModalNew, setOpenModalNew] = useState(false)
 
   return (
@@ -122,9 +122,9 @@ const Page = () => {
 
       <Modal open={openModalNew} onClose={() => setOpenModalNew((prev) => !prev)}>
         <AddTakeover
-          onSubmitted={() => {
+          onSubmitted={(newProj) => {
             setOpenModalNew(false)
-            fetchProjects()
+            setProjects((prev) => [...prev, newProj])
           }}
         />
       </Modal>
