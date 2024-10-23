@@ -1,19 +1,19 @@
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
-import { Dispatch, SetStateAction } from 'react'
-import SingleLink, { SingleLinkProps } from './SingleLink'
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import { Dispatch, SetStateAction } from 'react';
+import SingleLink, { SingleLinkProps } from './SingleLink';
 
 export interface MultipleLinksProps {
-  title: string
-  links: SingleLinkProps[]
+  title: string;
+  links: SingleLinkProps[];
   dropdownState: {
-    value: string
-    setValue: Dispatch<SetStateAction<string>>
-  }
+    value: string;
+    setValue: Dispatch<SetStateAction<string>>;
+  };
 }
 
 const MultipleLinks = (props: MultipleLinksProps) => {
-  const { title, links, dropdownState } = props
-  const open = dropdownState.value === title
+  const { title, links, dropdownState } = props;
+  const open = dropdownState.value === title;
 
   return (
     <div className='relative'>
@@ -21,8 +21,8 @@ const MultipleLinks = (props: MultipleLinksProps) => {
         type='button'
         onClick={() =>
           dropdownState.setValue((prev) => {
-            if (prev === title) return ''
-            return title
+            if (prev === title) return '';
+            return title;
           })
         }
         className={
@@ -40,17 +40,14 @@ const MultipleLinks = (props: MultipleLinksProps) => {
           className='lg:flex lg:flex-col lg:items-start lg:absolute lg:top-12 lg:-left-4 lg:overflow-auto lg:w-fit lg:p-4 lg:bg-gray-900 lg:border-gray-700 lg:rounded-xl'
         >
           {links.map((obj) => (
-            <li
-              key={`link-group-${title}-item-${obj.label}`}
-              className='lg:py-1 bg-gray-800 lg:bg-transparent rounded'
-            >
+            <li key={`link-group-${title}-item-${obj.label}`} className='lg:py-1 bg-gray-800 lg:bg-transparent rounded'>
               <SingleLink {...obj} />
             </li>
           ))}
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MultipleLinks
+export default MultipleLinks;

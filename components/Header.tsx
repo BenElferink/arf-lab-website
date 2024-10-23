@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Glitch from './Glitch'
-import SocialIcon from './SocialIcon'
-import Navigation from './Navigation'
+import Image from 'next/image';
+import Glitch from './Glitch';
+import SocialIcon from './SocialIcon';
+import Navigation from './Navigation';
 
 const Header = () => {
   return (
@@ -34,7 +34,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

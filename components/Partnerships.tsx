@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import Glitch from './Glitch'
+import Link from 'next/link';
+import Image from 'next/image';
+import Glitch from './Glitch';
 
 const data = [
   {
@@ -18,7 +18,7 @@ const data = [
     url: 'https://cardanolands.com',
     logoUrl: '/media/logo/cardanolands.png',
   },
-]
+];
 
 const Partnerships = () => {
   return (
@@ -42,7 +42,7 @@ const Partnerships = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Partnerships
+export default Partnerships;

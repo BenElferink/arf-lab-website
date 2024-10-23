@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { useWindowSize } from 'usehooks-ts'
-import Glitch from './Glitch'
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useWindowSize } from 'usehooks-ts';
+import Glitch from './Glitch';
 
 const IMAGES = [
   '/media/anatomy/daddy.png',
@@ -9,22 +9,22 @@ const IMAGES = [
   '/media/anatomy/lizard.png',
   '/media/anatomy/pirate.png',
   '/media/anatomy/punk.png',
-]
+];
 
 const Landing = () => {
-  const { height: windowHeight, width: windowWidth } = useWindowSize()
+  const { height: windowHeight, width: windowWidth } = useWindowSize();
 
-  const [showIndex, setShowIndex] = useState(0)
-
-  useEffect(() => {
-    setShowIndex(Math.floor(Math.random() * IMAGES.length))
-  }, [])
-
-  const [imageSize, setImageSize] = useState(1)
+  const [showIndex, setShowIndex] = useState(0);
 
   useEffect(() => {
-    setImageSize(windowHeight / (windowWidth < 1280 ? 1.7 : 1.5))
-  }, [windowHeight, windowWidth])
+    setShowIndex(Math.floor(Math.random() * IMAGES.length));
+  }, []);
+
+  const [imageSize, setImageSize] = useState(1);
+
+  useEffect(() => {
+    setImageSize(windowHeight / (windowWidth < 1280 ? 1.7 : 1.5));
+  }, [windowHeight, windowWidth]);
 
   return (
     <div id='home' className='relative w-screen h-[92vh]'>
@@ -36,7 +36,7 @@ const Landing = () => {
         <Image src={IMAGES[showIndex]} alt='anatomy' priority width={imageSize} height={imageSize} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;

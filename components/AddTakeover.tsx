@@ -1,61 +1,61 @@
-import { Fragment, useState } from 'react'
-import toast from 'react-hot-toast'
-import { firestore } from '@/utils/firebase'
-import { ArrowUpTrayIcon } from '@heroicons/react/24/solid'
-import { PlusCircleIcon } from '@heroicons/react/24/outline'
-import uploadFile from '@/functions/bucket/uploadFile'
-import Loader from './Loader'
-import Input from './Input'
-import TextArea from './TextArea'
-import Button from './Button'
-import SocialIcon from './SocialIcon'
-import TrashButton from './TrashButton'
-import MediaViewer from './MediaViewer'
-import type { TakeoverProject } from '@/@types'
+import { Fragment, useState } from 'react';
+import toast from 'react-hot-toast';
+import { firestore } from '@/utils/firebase';
+import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import uploadFile from '@/functions/bucket/uploadFile';
+import Loader from './Loader';
+import Input from './Input';
+import TextArea from './TextArea';
+import Button from './Button';
+import SocialIcon from './SocialIcon';
+import TrashButton from './TrashButton';
+import MediaViewer from './MediaViewer';
+import type { TakeoverProject } from '@/@types';
 
 const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: string }) => void }) => {
-  const { onSubmitted } = props
-  const [projLogo, setProjLogo] = useState('')
-  const [projName, setProjName] = useState('')
-  const [projDesc, setProjDesc] = useState('')
+  const { onSubmitted } = props;
+  const [projLogo, setProjLogo] = useState('');
+  const [projName, setProjName] = useState('');
+  const [projDesc, setProjDesc] = useState('');
 
-  const [projTwitterLink, setProjTwitterLink] = useState('')
-  const [projDiscordLink, setProjDiscordLink] = useState('')
-  const [projWebsiteLink, setProjWebsiteLink] = useState('')
-  const [projLinks, setProjLinks] = useState<string[]>([])
+  const [projTwitterLink, setProjTwitterLink] = useState('');
+  const [projDiscordLink, setProjDiscordLink] = useState('');
+  const [projWebsiteLink, setProjWebsiteLink] = useState('');
+  const [projLinks, setProjLinks] = useState<string[]>([]);
 
   const [progress, setProgress] = useState({
     msg: '',
     loading: false,
-  })
+  });
 
   const upload = async (file: File) => {
-    setProgress((prev) => ({ ...prev, loading: true, msg: 'Uploading...' }))
+    setProgress((prev) => ({ ...prev, loading: true, msg: 'Uploading...' }));
 
-    const sizeLimit = 5000000 // 5mb
+    const sizeLimit = 5000000; // 5mb
     if (file.size > sizeLimit) {
-      setProgress((prev) => ({ ...prev, loading: false, msg: 'File size is limited to 5mb' }))
-      return ''
+      setProgress((prev) => ({ ...prev, loading: false, msg: 'File size is limited to 5mb' }));
+      return '';
     }
 
     try {
-      const { fileUrl } = await uploadFile(file)
-      setProgress((prev) => ({ ...prev, loading: false, msg: '' }))
-      return fileUrl
+      const { fileUrl } = await uploadFile(file);
+      setProgress((prev) => ({ ...prev, loading: false, msg: '' }));
+      return fileUrl;
     } catch (error: any) {
-      const errMsg = error?.response?.data || error?.message || error?.toString() || 'UNKNOWN ERROR'
-      setProgress((prev) => ({ ...prev, loading: false, msg: errMsg }))
-      return ''
+      const errMsg = error?.response?.data || error?.message || error?.toString() || 'UNKNOWN ERROR';
+      setProgress((prev) => ({ ...prev, loading: false, msg: errMsg }));
+      return '';
     }
-  }
+  };
 
-  const [submitting, setSubmitting] = useState(false)
+  const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
-    setSubmitting(true)
-    toast.loading('Submitting')
+    setSubmitting(true);
+    toast.loading('Submitting');
 
-    const collection = firestore.collection('projects')
+    const collection = firestore.collection('projects');
 
     const payload: TakeoverProject = {
       logo: projLogo,
@@ -65,34 +65,34 @@ const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: str
         .concat(projLinks)
         .filter((str) => !!str)
         .map((str) => {
-          const baseUrl = str.split('?')[0]
+          const baseUrl = str.split('?')[0];
 
           if (baseUrl.indexOf('https://') === 0) {
-            return baseUrl
+            return baseUrl;
           } else if (baseUrl.indexOf('http://') === 0) {
-            return baseUrl.replace('http://', 'https://')
+            return baseUrl.replace('http://', 'https://');
           } else {
-            return `https://${baseUrl}`
+            return `https://${baseUrl}`;
           }
         }),
-    }
+    };
 
-    const { id } = await collection.add(payload)
+    const { id } = await collection.add(payload);
 
-    setProjLogo('')
-    setProjName('')
-    setProjDesc('')
-    setProjTwitterLink('')
-    setProjDiscordLink('')
-    setProjWebsiteLink('')
-    setProjLinks([])
+    setProjLogo('');
+    setProjName('');
+    setProjDesc('');
+    setProjTwitterLink('');
+    setProjDiscordLink('');
+    setProjWebsiteLink('');
+    setProjLinks([]);
 
-    setSubmitting(false)
-    toast.dismiss()
-    toast.success('Submitted')
+    setSubmitting(false);
+    toast.dismiss();
+    toast.success('Submitted');
 
-    setTimeout(() => onSubmitted({ ...payload, id }), 0)
-  }
+    setTimeout(() => onSubmitted({ ...payload, id }), 0);
+  };
 
   return (
     <Fragment>
@@ -121,10 +121,10 @@ const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: str
                   multiple={false}
                   disabled={progress.loading}
                   onChange={async (e) => {
-                    const file = (e.target.files as FileList)[0]
+                    const file = (e.target.files as FileList)[0];
                     if (file) {
-                      const fileUrl = await upload(file)
-                      if (fileUrl) setProjLogo(fileUrl)
+                      const fileUrl = await upload(file);
+                      if (fileUrl) setProjLogo(fileUrl);
                     }
                   }}
                 />
@@ -161,24 +161,24 @@ const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: str
                 value={str}
                 setValue={(v) =>
                   setProjLinks((prev) => {
-                    const payload: typeof prev = JSON.parse(JSON.stringify(prev))
+                    const payload: typeof prev = JSON.parse(JSON.stringify(prev));
 
-                    payload[idx] = v
+                    payload[idx] = v;
 
-                    return payload
+                    return payload;
                   })
                 }
               />
               <TrashButton
                 onClick={() => {
                   setProjLinks((prev) => {
-                    const payload: typeof prev = JSON.parse(JSON.stringify(prev))
+                    const payload: typeof prev = JSON.parse(JSON.stringify(prev));
 
-                    const foundIdx = payload.findIndex((val) => val === str)
-                    if (foundIdx !== -1) payload.splice(foundIdx, 1)
+                    const foundIdx = payload.findIndex((val) => val === str);
+                    if (foundIdx !== -1) payload.splice(foundIdx, 1);
 
-                    return payload
-                  })
+                    return payload;
+                  });
                 }}
               />
             </div>
@@ -189,11 +189,11 @@ const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: str
             disabled={!!projLinks.filter((str) => !str).length}
             onClick={() =>
               setProjLinks((prev) => {
-                const payload: typeof prev = JSON.parse(JSON.stringify(prev))
+                const payload: typeof prev = JSON.parse(JSON.stringify(prev));
 
-                prev.push('')
+                prev.push('');
 
-                return payload
+                return payload;
               })
             }
           />
@@ -212,7 +212,7 @@ const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: str
         )}
       </div>
     </Fragment>
-  )
-}
+  );
+};
 
-export default AddTakeover
+export default AddTakeover;

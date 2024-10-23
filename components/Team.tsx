@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import Glitch from './Glitch'
-import SocialIcon from './SocialIcon'
+import Image from 'next/image';
+import Glitch from './Glitch';
+import SocialIcon from './SocialIcon';
 
 interface TeamMember {
   profilePicture: string
@@ -11,7 +11,7 @@ interface TeamMember {
 }
 
 const TeamCard = (props: TeamMember) => {
-  const { profilePicture, name, titles, description, socials } = props
+  const { profilePicture, name, titles, description, socials } = props;
 
   return (
     <article className='flex flex-col items-center justify-center w-72 m-2 p-5 bg-neutral-900/50 rounded-xl border border-green-400 shadow-neon backdrop-blur'>
@@ -35,8 +35,8 @@ const TeamCard = (props: TeamMember) => {
         ))}
       </div>
     </article>
-  )
-}
+  );
+};
 
 const Team = () => {
   return (
@@ -84,7 +84,7 @@ const Team = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Team
+export default Team;

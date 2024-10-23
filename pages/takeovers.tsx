@@ -1,32 +1,32 @@
-import Link from 'next/link'
-import { Fragment, useState } from 'react'
-import { firestore } from '@/utils/firebase'
-import { PlusCircleIcon } from '@heroicons/react/24/outline'
-import Glitch from '@/components/Glitch'
-import Modal from '@/components/Modal'
-import MediaViewer from '@/components/MediaViewer'
-import SocialIcon from '@/components/SocialIcon'
-import AddTakeover from '@/components/AddTakeover'
-import type { TakeoverProject } from '@/@types'
-import { GetServerSideProps } from 'next'
+import Link from 'next/link';
+import { Fragment, useState } from 'react';
+import { firestore } from '@/utils/firebase';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import Glitch from '@/components/Glitch';
+import Modal from '@/components/Modal';
+import MediaViewer from '@/components/MediaViewer';
+import SocialIcon from '@/components/SocialIcon';
+import AddTakeover from '@/components/AddTakeover';
+import type { TakeoverProject } from '@/@types';
+import { GetServerSideProps } from 'next';
 
 type Props = {
   projects: (TakeoverProject & { id: string })[]
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const collection = firestore.collection('projects')
-  const { docs } = await collection.get()
+  const collection = firestore.collection('projects');
+  const { docs } = await collection.get();
 
-  const payload = docs.map((doc) => ({ ...(doc.data() as TakeoverProject), id: doc.id })).sort((a, b) => a.name.localeCompare(b.name))
+  const payload = docs.map((doc) => ({ ...(doc.data() as TakeoverProject), id: doc.id })).sort((a, b) => a.name.localeCompare(b.name));
 
-  return { props: { projects: payload } }
-}
+  return { props: { projects: payload } };
+};
 
 const Page = ({ projects: projectsFromServer }: Props) => {
-  const [projects, setProjects] = useState<(TakeoverProject & { id: string })[]>(projectsFromServer)
-  const [selectedProjectId, setSelectedProjectId] = useState('')
-  const [openModalNew, setOpenModalNew] = useState(false)
+  const [projects, setProjects] = useState<(TakeoverProject & { id: string })[]>(projectsFromServer);
+  const [selectedProjectId, setSelectedProjectId] = useState('');
+  const [openModalNew, setOpenModalNew] = useState(false);
 
   return (
     <main className='flex flex-col items-center'>
@@ -90,8 +90,8 @@ const Page = ({ projects: projectsFromServer }: Props) => {
 
       <Modal open={!!selectedProjectId} onClose={() => setSelectedProjectId('')}>
         {(() => {
-          const proj = projects.find((proj) => proj.id === selectedProjectId)
-          if (!proj) return null
+          const proj = projects.find((proj) => proj.id === selectedProjectId);
+          if (!proj) return null;
 
           return (
             <div className='flex flex-col items-center text-center'>
@@ -116,20 +116,20 @@ const Page = ({ projects: projectsFromServer }: Props) => {
                 </p>
               ) : null}
             </div>
-          )
+          );
         })()}
       </Modal>
 
       <Modal open={openModalNew} onClose={() => setOpenModalNew((prev) => !prev)}>
         <AddTakeover
           onSubmitted={(newProj) => {
-            setOpenModalNew(false)
-            setProjects((prev) => [...prev, newProj])
+            setOpenModalNew(false);
+            setProjects((prev) => [...prev, newProj]);
           }}
         />
       </Modal>
     </main>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

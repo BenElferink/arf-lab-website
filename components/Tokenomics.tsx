@@ -1,10 +1,10 @@
-import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from 'chart.js'
-import { useEffect, useState } from 'react'
-import { useWindowSize } from 'usehooks-ts'
-import { Doughnut } from 'react-chartjs-2'
-import Glitch from './Glitch'
+import { ArcElement, Chart as ChartJS, Legend, Title, Tooltip } from 'chart.js';
+import { useEffect, useState } from 'react';
+import { useWindowSize } from 'usehooks-ts';
+import { Doughnut } from 'react-chartjs-2';
+import Glitch from './Glitch';
 
-const TOTAL_SUPPLY = 40000000
+const TOTAL_SUPPLY = 40000000;
 
 const TOKENOMICS = [
   {
@@ -43,17 +43,17 @@ const TOKENOMICS = [
     percent: 5,
     color: 'rgb(200,200,100)',
   },
-]
+];
 
-ChartJS.register(ArcElement, Legend, Tooltip, Title)
+ChartJS.register(ArcElement, Legend, Tooltip, Title);
 
 const Tokenomics = () => {
-  const { width: screenWidth } = useWindowSize()
-  const [size, setSize] = useState(0)
+  const { width: screenWidth } = useWindowSize();
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
-    setSize((prev) => (!prev ? Math.min(screenWidth * 0.85, 350) : prev))
-  }, [screenWidth])
+    setSize((prev) => (!prev ? Math.min(screenWidth * 0.85, 350) : prev));
+  }, [screenWidth]);
 
   return (
     <div id='tokenomics' className='mt-40'>
@@ -122,7 +122,7 @@ const Tokenomics = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tokenomics
+export default Tokenomics;

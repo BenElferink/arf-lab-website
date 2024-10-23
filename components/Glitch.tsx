@@ -1,4 +1,4 @@
-import styles from '@/styles/Glitch.module.css'
+import styles from '@/styles/Glitch.module.css';
 
 const Glitch: (props: { children: string; color?: string; fontSize?: string }) => JSX.Element = ({
   children = 'React Glitch Text',
@@ -11,7 +11,7 @@ const Glitch: (props: { children: string; color?: string; fontSize?: string }) =
       {children}
       <span aria-hidden='true'>{children}</span>
     </p>
-  )
-}
+  );
+};
 
-export default Glitch
+export default Glitch;

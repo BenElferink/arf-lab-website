@@ -1,4 +1,4 @@
-import Glitch from './Glitch'
+import Glitch from './Glitch';
 
 const About = () => {
   return (
@@ -36,7 +36,7 @@ const About = () => {
         <p className='my-4 font-bold text-green-400'>To be continued...</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

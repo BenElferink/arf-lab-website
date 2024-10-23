@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
 const data = [
   {
@@ -7,7 +7,7 @@ const data = [
     url: 'https://cardano.org',
     logoUrl: '/media/logo/cardano.png',
   },
-]
+];
 
 const Footer = () => {
   return (
@@ -29,7 +29,7 @@ const Footer = () => {
         ))}
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { Bars3Icon } from '@heroicons/react/24/solid'
-import SingleLink from './SingleLink'
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { Bars3Icon } from '@heroicons/react/24/solid';
+import SingleLink from './SingleLink';
 
 const Navigation = () => {
-  const router = useRouter()
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const router = useRouter();
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <nav className='flex items-center'>
@@ -21,8 +21,8 @@ const Navigation = () => {
         <ul className='flex flex-col lg:flex-row absolute right-0 lg:static overflow-auto lg:overflow-visible max-h-[80vh] lg:max-h-auto w-60 lg:w-auto mt-8 lg:mt-0 p-4 lg:px-8 lg:space-x-10 bg-zinc-900 lg:bg-transparent rounded-lg border border-green-400'>
           <li
             onClick={() => {
-              if (router.pathname === '/') window.scrollTo({ top: 0 })
-              setIsNavOpen(false)
+              if (router.pathname === '/') window.scrollTo({ top: 0 });
+              setIsNavOpen(false);
             }}
           >
             <SingleLink label='Home' path='/' />
@@ -38,8 +38,8 @@ const Navigation = () => {
 
           <li
             onClick={() => {
-              if (router.pathname === '/takeovers') window.scrollTo({ top: 0 })
-              setIsNavOpen(false)
+              if (router.pathname === '/takeovers') window.scrollTo({ top: 0 });
+              setIsNavOpen(false);
             }}
           >
             <SingleLink label='Takeovers' path='/takeovers' />
@@ -47,7 +47,7 @@ const Navigation = () => {
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

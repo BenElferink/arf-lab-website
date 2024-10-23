@@ -1,17 +1,17 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export interface SingleLinkProps {
-  label: string
-  path?: string
-  url?: string
-  onClick?: () => void
+  label: string;
+  path?: string;
+  url?: string;
+  onClick?: () => void;
 }
 
 const SingleLink = (props: SingleLinkProps) => {
-  const { label, path, url, onClick } = props
-  const router = useRouter()
-  const selected = router.asPath === path // || router.pathname === path
+  const { label, path, url, onClick } = props;
+  const router = useRouter();
+  const selected = router.asPath === path; // || router.pathname === path
 
   return (
     <Link
@@ -27,7 +27,7 @@ const SingleLink = (props: SingleLinkProps) => {
     >
       {label}
     </Link>
-  )
-}
+  );
+};
 
-export default SingleLink
+export default SingleLink;
