@@ -1,9 +1,9 @@
-import Landing from '@/src/components/Landing';
-import About from '@/src/components/About';
-import Tokenomics from '@/src/components/Tokenomics';
-import Roadmap from '@/src/components/Roadmap';
-import Partnerships from '@/src/components/Partnerships';
-import Team from '@/src/components/Team';
+import Landing from '@/srccomponents/Landing';
+import About from '@/srccomponents/About';
+import Tokenomics from '@/srccomponents/Tokenomics';
+import Roadmap from '@/srccomponents/Roadmap';
+import Partnerships from '@/srccomponents/Partnerships';
+import Team from '@/srccomponents/Team';
 
 const Page = () => {
   return (

@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import { MinusCircleIcon } from '@heroicons/react/24/outline';
-import useScreenSize from '@/src/hooks/useScreenSize';
+import useScreenSize from '@/srchooks/useScreenSize';
 // import Glitch from '../Glitch'
 import styles from './Roadmap.module.css';
 

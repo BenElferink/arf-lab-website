@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react';
 import toast from 'react-hot-toast';
-import { firestore } from '@/src/utils/firebase';
+import { firestore } from '@/srcutils/firebase';
 import { ArrowUpTrayIcon } from '@heroicons/react/24/solid';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
-import uploadFile from '@/src/functions/bucket/uploadFile';
+import uploadFile from '@/srcfunctions/bucket/uploadFile';
 import Loader from './Loader';
 import Input from './Input';
 import TextArea from './TextArea';
@@ -11,7 +11,7 @@ import Button from './Button';
 import SocialIcon from './SocialIcon';
 import TrashButton from './TrashButton';
 import MediaViewer from './MediaViewer';
-import type { TakeoverProject } from '@/src/@types';
+import type { TakeoverProject } from '@/src@types';
 
 const AddTakeover = (props: { onSubmitted: (payload: TakeoverProject & { id: string }) => void }) => {
   const { onSubmitted } = props;

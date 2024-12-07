@@ -1,4 +1,4 @@
-import styles from '@/src/styles/Glitch.module.css';
+import styles from '@/srcstyles/Glitch.module.css';
 
 const Glitch: (props: { children: string; color?: string; fontSize?: string }) => JSX.Element = ({
   children = 'React Glitch Text',

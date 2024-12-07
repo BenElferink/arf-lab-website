@@ -1,4 +1,4 @@
-import { storage } from '@/src/utils/firebase'
+import { storage } from '@/srcutils/firebase'
 import { v4 as uuidv4 } from 'uuid'
 
 const uploadFile = async (file: File): Promise<{ fileId: string; fileUrl: string }> => {
