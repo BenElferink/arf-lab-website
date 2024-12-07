@@ -1,4 +1,4 @@
-# $LAB Token
+# A.R.F $LAB
 
 - [Website](https://www.lab-token.com/)
 

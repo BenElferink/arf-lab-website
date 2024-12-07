@@ -1,7 +1,7 @@
 {
-  "short_name": "The A.R.F $LAB",
+  "short_name": "A.R.F $LAB",
   "name": "The A.R.F $LAB",
-  "description": "The official The A.R.F $LAB website.",
+  "description": "The official website of A.R.F $LAB.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -25,6 +25,6 @@
   "background_color": "#000000",
   "developer": {
     "name": "Ben Elferink",
-    "url": "https://github.com/belferink1996"
+    "url": "https://github.com/BenElferink"
   }
 }
