@@ -16,25 +16,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint-fix": "next lint --fix"
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "chart.js": "^4.4.7",
     "firebase": "^11.0.2",
     "next": "15.0.4",
-    "react": "19.0.0",
+    "react": "18.3.1",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "19.0.0",
+    "react-dom": "18.3.1",
     "react-hot-toast": "^2.4.1",
     "usehooks-ts": "^3.1.0",
     "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.16.0",
