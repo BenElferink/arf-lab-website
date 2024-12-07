@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
-import { firestore } from '@/srcutils/firebase';
+import { firestore } from '@/utils/firebase';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
-import Glitch from '@/srccomponents/Glitch';
-import Modal from '@/srccomponents/Modal';
-import MediaViewer from '@/srccomponents/MediaViewer';
-import SocialIcon from '@/srccomponents/SocialIcon';
-import AddTakeover from '@/srccomponents/AddTakeover';
-import type { TakeoverProject } from '@/src@types';
+import Glitch from '@/components/Glitch';
+import Modal from '@/components/Modal';
+import MediaViewer from '@/components/MediaViewer';
+import SocialIcon from '@/components/SocialIcon';
+import AddTakeover from '@/components/AddTakeover';
+import type { TakeoverProject } from '@/@types';
 import { GetServerSideProps } from 'next';
 
 type Props = {
