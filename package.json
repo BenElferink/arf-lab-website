@@ -1,15 +1,15 @@
 {
-  "name": "arf-lab",
+  "name": "arf-lab-website",
   "version": "0.1.0",
   "private": true,
   "homepage": "/",
   "author": "Ben Elferink <ben.elferink@icloud.com> (https://github.com/BenElferink)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BenElferink/arf-lab.git"
+    "url": "https://github.com/BenElferink/arf-lab-website.git"
   },
   "bugs": {
-    "url": "https://github.com/BenElferink/arf-lab/issues",
+    "url": "https://github.com/BenElferink/arf-lab-website/issues",
     "email": "ben.elferink@icloud.com"
   },
   "scripts": {
