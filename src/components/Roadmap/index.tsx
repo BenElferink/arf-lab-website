@@ -1,8 +1,8 @@
-import { CheckCircleIcon } from '@heroicons/react/24/solid';
-import { MinusCircleIcon } from '@heroicons/react/24/outline';
-import useScreenSize from '@/hooks/useScreenSize';
+import { CheckCircleIcon } from '@heroicons/react/24/solid'
+import { MinusCircleIcon } from '@heroicons/react/24/outline'
+import useScreenSize from '@/hooks/useScreenSize'
 // import Glitch from '../Glitch'
-import styles from './Roadmap.module.css';
+import styles from './Roadmap.module.css'
 
 const data = [
   {
@@ -29,36 +29,18 @@ const data = [
     events: [
       {
         checked: true,
-        title: '40,000,000 $BANK',
+        title: '59,000,000 $BANK',
       },
       {
         checked: true,
-        title: '93.957 $OMNI',
+        title: '129,000 $OMNI',
       },
     ],
   },
-  {
-    checked: true,
-    chapter: 'Total Rewards',
-    events: [
-      {
-        checked: true,
-        title: 'Airdrops: 285 $ADA',
-      },
-      {
-        checked: true,
-        title: 'Staking: 1900 $ADA',
-      },
-      {
-        checked: true,
-        title: 'All Time: 2185 $ADA',
-      },
-    ],
-  },
-];
+]
 
 const Roadmap = () => {
-  const { isMobile } = useScreenSize();
+  const { isMobile } = useScreenSize()
 
   return (
     <div id='roadmap' className='w-full mt-40'>
@@ -67,7 +49,7 @@ const Roadmap = () => {
       </div> */}
 
       {data.map((phase, idx) => {
-        const isLeft = idx % 2 !== 0;
+        const isLeft = idx % 2 !== 0
 
         return (
           <div
@@ -95,10 +77,10 @@ const Roadmap = () => {
 
             {isMobile ? <br /> : null}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Roadmap;
+export default Roadmap
